@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kopi Senja — Skeleton</title>
+
+  <!-- ============================================================
+       INI DIA TAILWIND-NYA. Satu baris, langsung jalan.
+       Versi CDN: untuk belajar & prototyping.
+       Di proyek nyata, Tailwind diinstall lewat npm (Vite/Next/Laravel).
+       ?plugins=typography  -> supaya class "prose" bisa dipakai.
+       ============================================================ -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================
+       CHALLENGE 2A — Navbar (bagian dari 10 menit)
+
+       Target:
+       - Logo di kiri, menu di kanan
+       - Semua item rata tengah secara vertikal
+       - Ada jarak antar menu (jangan pakai margin satu-satu)
+       - Navbar punya padding, latar putih, dan garis bawah tipis
+
+       Hint: flex, items-center, justify-between, gap-*, px-*, py-*,
+             bg-white, border-b, border-gray-*
+
+       Selesai duluan? Buat menu-nya berubah warna saat disentuh kursor.
+       ============================================================ -->
+  <header class="">
+    <div class="">
+      <span class="">Kopi Senja</span>
+
+      <nav class="">
+        <a href="#">Menu</a>
+        <a href="#">Tentang</a>
+        <a href="#">Lokasi</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       HERO
+       ============================================================
+       CHALLENGE 3 (bagian 2 & 3) — Responsive
+       Kerjakan bagian ini SETELAH materi responsive.
+
+       Target:
+       - Judul: ukuran sedang di HP, besar di desktop
+       - Padding kiri-kanan: sempit di HP, lega di desktop
+       - Isi hero rata tengah, dengan lebar maksimal (jangan melar penuh)
+
+       Hint: text-3xl md:text-5xl, px-4 md:px-12, py-*,
+             max-w-2xl, mx-auto, text-center
+
+       Uji dengan mengecilkan lebar panel preview StackBlitz.
+       ============================================================ -->
+  <section class="">
+    <div class="">
+      <h1 class="">
+        Kopi yang menemani sore Anda
+      </h1>
+
+      <p class="">
+        Diseduh dari biji pilihan petani Jawa Tengah. Datang, duduk, dan
+        biarkan harinya melambat sebentar.
+      </p>
+
+      <a href="#" class="">
+        Lihat Menu
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION FITUR — 3 KARTU
+       ============================================================ -->
+  <section class="">
+    <div class="">
+
+      <h2 class="">
+        Kenapa Kopi Senja
+      </h2>
+
+
+      <!-- ==========================================================
+           CHALLENGE 1 — Box Model (8 menit)
+           Kerjakan HANYA kartu pertama di bawah ini dulu.
+
+           Target kartu:
+           - Latar putih
+           - Ada padding di dalam (isi tidak menempel ke tepi)
+           - Sudut membulat
+           - Border tipis berwarna abu terang
+           - Sedikit bayangan
+           - Lebar maksimal sekitar 384px
+
+           Hint: bg-white, p-*, rounded-*, border, border-gray-*,
+                 shadow-*, max-w-sm
+
+           Selesai duluan? Atur hirarki teks di dalamnya:
+           judul lebih besar & tebal, deskripsi lebih kecil & abu.
+           Hint: text-lg, font-semibold, text-sm, text-gray-500, mb-*
+           ==========================================================
+
+           CHALLENGE 2B — Grid (bagian dari 10 menit)
+           Setelah materi layout: susun KETIGA kartu jadi 3 kolom sejajar.
+           Class grid-nya ditaruh di <div> pembungkus di bawah ini.
+
+           Hint: grid, grid-cols-3, gap-*
+
+           CHALLENGE 3 (bagian 1) — Responsive
+           Setelah materi responsive: buat grid ini jadi
+           1 kolom di HP, 2 kolom di tablet, 3 kolom di desktop.
+
+           Hint: grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+           ========================================================== -->
+      <div class="">
+
+        <!-- Kartu 1 — kerjakan yang ini di Challenge 1 -->
+        <div class="">
+          <h3>Biji Lokal</h3>
+          <p>Dipanen langsung dari kebun di lereng Ungaran, bukan lewat perantara.</p>
+        </div>
+
+        <!-- Kartu 2 — salin class dari kartu 1 setelah selesai -->
+        <div class="">
+          <h3>Seduh Manual</h3>
+          <p>V60, Kalita, atau tubruk. Anda yang pilih, kami yang seduhkan.</p>
+        </div>
+
+        <!-- Kartu 3 — salin class dari kartu 1 setelah selesai -->
+        <div class="">
+          <h3>Ruang Tenang</h3>
+          <p>Wifi cepat, colokan di tiap meja, dan musik yang tidak berisik.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SECTION ARTIKEL — demo "prose"
+       ============================================================
+       Tidak ada challenge di sini. Cukup perhatikan saat saya demo.
+
+       Perhatikan: tag di bawah ini polos, tanpa satu pun class.
+       Kita akan menambahkan SATU class di <div> pembungkus,
+       dan semuanya langsung rapi.
+       ============================================================ -->
+  <section class="">
+    <div class="">
+
+      <h2>Dari mana kopi kami datang</h2>
+
+      <p>
+        Setiap dua minggu kami naik ke lereng Ungaran, menemui petani yang
+        sudah tiga generasi menanam kopi di sana. Tidak ada tengkulak di
+        antara kami dan mereka.
+      </p>
+
+      <p>Yang kami cari sederhana:</p>
+
+      <ul>
+        <li>Biji yang dipetik saat benar-benar merah</li>
+        <li>Proses jemur yang tidak terburu-buru</li>
+        <li>Petani yang dibayar layak</li>
+      </ul>
+
+      <p>
+        Hasilnya bisa Anda cicipi sendiri di gelas.
+        <a href="#">Lihat daftar menu kami</a>.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================
+       PR (dikerjakan di rumah):
+
+       1. Rapikan footer ini: beri padding, latar gelap, teks terang
+       2. Susun jadi 2 kolom di desktop, 1 kolom bertumpuk di HP
+       3. Beri efek hover pada setiap link
+
+       Hint: bg-gray-*, text-gray-*, py-*, px-*,
+             grid, grid-cols-1 md:grid-cols-2, gap-*,
+             hover:text-*, transition
+       ============================================================ -->
+  <footer class="">
+    <div class="">
+
+      <div>
+        <span>Kopi Senja</span>
+        <p>Jl. Pandanaran No. 12, Semarang</p>
+      </div>
+
+      <div>
+        <a href="#">Instagram</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Karier</a>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
