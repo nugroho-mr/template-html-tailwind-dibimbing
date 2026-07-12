@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kopi Senja — Referensi Final</title>
+
+    <!-- ============================================================
+       TAILWIND VIA CDN
+       Untuk belajar & prototyping. JANGAN untuk production
+       (tidak ada optimasi / purge, ukuran file besar).
+
+       Di proyek nyata:
+         Vite/React/Vue -> npm install tailwindcss
+         Next.js        -> sudah ada saat create-next-app
+         Laravel        -> sudah disiapkan default lewat Vite
+
+       Cara installnya beda-beda. Nama class-nya SAMA PERSIS.
+
+       ?plugins=typography -> mengaktifkan class "prose"
+       ============================================================ -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  </head>
+
+  <body class="bg-gray-50 text-gray-800">
+    <!-- ============================================================
+       NAVBAR — Flexbox
+       ------------------------------------------------------------
+       flex             -> anak-anaknya berjajar horizontal
+       items-center     -> rata tengah VERTIKAL
+       justify-between  -> dorong ke tepi kiri & kanan
+       gap-6            -> jarak antar item (lebih baik daripada margin)
+
+       Kombinasi "flex items-center justify-between" adalah pola
+       paling sering dipakai di industri. Hafalkan yang satu ini.
+
+       max-w-5xl + mx-auto -> pola container: batasi lebar, taruh di tengah
+       ============================================================ -->
+    <header class="bg-white border-b border-gray-200">
+      <div
+        class="max-w-5xl mx-auto flex items-center justify-between px-4 md:px-8 py-4"
+      >
+        <span class="text-xl font-bold text-gray-900">Kopi Senja</span>
+
+        <nav class="flex items-center gap-6 text-sm font-medium text-gray-600">
+          <a href="#" class="hover:text-gray-900 transition duration-200"
+            >Menu</a
+          >
+          <a href="#" class="hover:text-gray-900 transition duration-200"
+            >Tentang</a
+          >
+          <a href="#" class="hover:text-gray-900 transition duration-200"
+            >Lokasi</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- ============================================================
+       HERO — Responsive typography & spacing
+       ------------------------------------------------------------
+       MOBILE-FIRST. Ini konsep yang paling sering salah dipahami:
+
+         text-3xl          -> berlaku di SEMUA ukuran layar
+         md:text-5xl       -> MULAI dari layar medium (768px) KE ATAS
+
+       Jadi: tulis versi HP dulu, lalu timpa untuk layar besar.
+       Bukan sebaliknya.
+
+       Breakpoint: sm 640px | md 768px | lg 1024px | xl 1280px
+       ============================================================ -->
+    <section class="bg-white">
+      <div class="max-w-2xl mx-auto text-center px-4 md:px-12 py-16 md:py-24">
+        <h1
+          class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-4"
+        >
+          Kopi yang menemani sore Anda
+        </h1>
+
+        <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8">
+          Diseduh dari biji pilihan petani Jawa Tengah. Datang, duduk, dan
+          biarkan harinya melambat sebentar.
+        </p>
+
+        <!-- Tombol: box model + hover effect -->
+        <a
+          href="#"
+          class="inline-block bg-gray-900 text-white text-sm font-medium px-6 py-3 rounded-lg shadow-md hover:bg-gray-700 hover:shadow-lg transition duration-200"
+        >
+          Lihat Menu
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       SECTION FITUR — Grid + Box Model
+       ------------------------------------------------------------
+       KAPAN FLEX, KAPAN GRID?
+         flex -> deretan satu arah, ukurannya menyesuaikan isi (navbar)
+         grid -> kolom rapi & seragam (daftar kartu)
+
+       Responsive grid — pola paling umum di industri:
+         grid-cols-1        -> HP: bertumpuk
+         md:grid-cols-2     -> tablet: 2 kolom
+         lg:grid-cols-3     -> desktop: 3 kolom
+       ============================================================ -->
+    <section class="px-4 md:px-12 py-16">
+      <div class="max-w-5xl mx-auto">
+        <h2
+          class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10"
+        >
+          Kenapa Kopi Senja
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- ------------------------------------------------------
+             ANATOMI KARTU (Box Model)
+
+             bg-white          -> latar
+             p-6               -> padding dalam (6 x 4px = 24px)
+             rounded-xl        -> sudut membulat
+             border            -> garis tepi 1px
+             border-gray-200   -> warna garis
+             shadow-sm         -> bayangan halus
+             max-w-sm          -> lebar maksimal 384px
+
+             SKALA SPACING: angka Tailwind BUKAN pixel.
+             Rumusnya angka x 4px.  p-1=4px  p-2=8px  p-4=16px  p-6=24px
+
+             Efek hover ditaruh di kartu, bukan di dalamnya:
+             hover:-translate-y-1 -> terangkat sedikit
+             hover:shadow-lg      -> bayangan menebal
+             transition           -> WAJIB, kalau tidak perubahannya kasar
+             ------------------------------------------------------ -->
+          <div
+            class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm max-w-sm hover:-translate-y-1 hover:shadow-lg transition duration-300"
+          >
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Biji Lokal</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Dipanen langsung dari kebun di lereng Ungaran, bukan lewat
+              perantara.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm max-w-sm hover:-translate-y-1 hover:shadow-lg transition duration-300"
+          >
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Seduh Manual
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              V60, Kalita, atau tubruk. Anda yang pilih, kami yang seduhkan.
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm max-w-sm hover:-translate-y-1 hover:shadow-lg transition duration-300"
+          >
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              Ruang Tenang
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed">
+              Wifi cepat, colokan di tiap meja, dan musik yang tidak berisik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       SECTION ARTIKEL — plugin "prose"
+       ------------------------------------------------------------
+       Perhatikan: tag di dalam sini TIDAK punya satu pun class.
+       Cukup satu class "prose" di pembungkus, semuanya rapi.
+
+       KAPAN PAKAI YANG MANA?
+         utility manual -> UI: tombol, kartu, navbar, label
+                           (Anda kendalikan tiap elemennya)
+         prose          -> konten panjang yang tag-nya TIDAK Anda kendalikan:
+                           artikel blog, markdown, output CMS
+
+       prose datang dari plugin @tailwindcss/typography.
+       Di CDN sudah aktif. Di proyek nyata perlu diinstall.
+       ============================================================ -->
+    <section class="bg-white px-4 md:px-12 py-16">
+      <div class="prose prose-gray max-w-2xl mx-auto">
+        <h2>Dari mana kopi kami datang</h2>
+
+        <p>
+          Setiap dua minggu kami naik ke lereng Ungaran, menemui petani yang
+          sudah tiga generasi menanam kopi di sana. Tidak ada tengkulak di
+          antara kami dan mereka.
+        </p>
+
+        <p>Yang kami cari sederhana:</p>
+
+        <ul>
+          <li>Biji yang dipetik saat benar-benar merah</li>
+          <li>Proses jemur yang tidak terburu-buru</li>
+          <li>Petani yang dibayar layak</li>
+        </ul>
+
+        <p>
+          Hasilnya bisa Anda cicipi sendiri di gelas.
+          <a href="#">Lihat daftar menu kami</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+       FOOTER — jawaban PR
+       ------------------------------------------------------------
+       Coba kerjakan sendiri dulu sebelum melihat bagian ini.
+       ============================================================ -->
+    <footer class="bg-gray-900 text-gray-400 px-4 md:px-12 py-12">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <span class="text-lg font-bold text-white">Kopi Senja</span>
+          <p class="text-sm mt-2">Jl. Pandanaran No. 12, Semarang</p>
+        </div>
+
+        <div class="flex items-center gap-6 text-sm md:justify-end">
+          <a href="#" class="hover:text-white transition duration-200"
+            >Instagram</a
+          >
+          <a href="#" class="hover:text-white transition duration-200"
+            >WhatsApp</a
+          >
+          <a href="#" class="hover:text-white transition duration-200"
+            >Karier</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
